@@ -46,7 +46,7 @@ export default {
           @keypress="fetch_weather"
         />
       </div>
-      <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
+      <div class="weather-wrap" v-if="weather?.main">
         <div class="location-box">
           <div class="location">{{ weather.name }}, {{ weather.sys.country }}</div>
           <div class="date">{{ dateBuilder() }}</div>
@@ -54,7 +54,7 @@ export default {
         <div class="weather-box">
           <div class="temp">{{ Math.round(weather.main.temp) }}°c</div>
           <div class="weather-image">
-            <img id="wicon" alt="Weather Icon" :src="`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`" />
+            <img class="wicon" id="wicon" alt="Weather Icon" :src="`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`" />
           </div>
           <div class="weather">
             {{ weather.weather[0].main }}
@@ -87,7 +87,7 @@ body {
   background-image: url(assets/hot-bg.png);
 }
 main{
-  min-height: 100vh;
+  height: 100vh;
   padding: 25px;
   background-image: linear-gradient(to bottom,rgba(0,0,0,0.25),rgba(0,0,0,0.25));
 }
@@ -156,17 +156,35 @@ margin:30px 0px;
 
 box-shadow: 3px 6px rgba(0, 0,0,0.25);
 }
+.weather-box .weather{
+    font-size: 24px;
+    color: #FFFFFF;
+    font-weight: bold;
+  }
 .weather-box .weather-description {
   color:#FFFFFF;
-  font-size: 10px;
-  font-weight: 300;
+  font-size: 20px;
   font-style: italic;
+  color: #FFFFFF;
+  font-weight: bold;
 }
 .weather-box .weather-image{
   position: center;
 }
+.wicon{
+    width:100px;
+    height:100px;
+    box-shadow: #ffffff;
+  }
 
 @media (min-width: 1024px) {
+  main{
+  height: 100%;
+  width: 100%;
+  padding: 25px;
+  background-image: linear-gradient(to bottom,rgba(0,0,0,0.25),rgba(0,0,0,0.25));
+
+}
   .search-box {
     width: 50%;
     margin: 0 auto;
@@ -177,18 +195,58 @@ box-shadow: 3px 6px rgba(0, 0,0,0.25);
   .weather-box .temp {
     font-size: 80px; 
   }
-  .weather-box .weather-description {
-    font-size: 14px;
+  .weather-box .weather{
+    font-size: 24px;
+
   }
+  .weather-box .weather-description {
+    font-size: 20px;
+  }
+  .wicon{
+    width:100px;
+    height:100px;
+    box-shadow: #ffffff;
+  }
+  
 }
 
 /* Styles réactifs pour les écrans plus petits (exemple : tablettes) */
 @media (max-width: 768px) {
-  
+  main{
+  height: 100vh;
+  width: 100%;
+  padding: 25px;
+  background-image: linear-gradient(bottom,rgba(0,0,0,0.25),rgba(0,0,0,0.25));
+
+}
+.weather-box .weather{
+    font-size: 24px;
+
+  }
+  .wicon{
+    width:100px;
+    height:100px;
+    box-shadow: #ffffff;
+  }
 }
 /* Styles réactifs pour les écrans plus petits téléphone */
 @media (max-width: 480px) {
-  
+  main{
+  height: 100vh;
+  width: 100%;
+}
+.weather-box .weather{
+    font-size: 24px;
+
+  }
+  .weather-box .weather-description {
+    font-size: 20px;
+  }
+  .wicon{
+    width:100px;
+    height:100px;
+    box-shadow: #ffffff;
+  }
   }
 </style>
  
