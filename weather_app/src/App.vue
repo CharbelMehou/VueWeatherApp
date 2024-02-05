@@ -54,7 +54,7 @@ export default {
           <div class="date">{{ dateBuilder() }}</div>
         </div>
         <div class="weather-box">
-          <div class="temp">{{ Math.round(weather.main.temp) }}°c</div>
+          <div class="temp">{{parseInt(weather.main.temp)}}°c</div>
           <div class="weather-image">
             <img class="wicon" id="wicon" alt="Weather Icon" :src="`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`" />
           </div>
@@ -249,8 +249,4 @@ box-shadow: 3px 6px rgba(0, 0,0,0.25);
   }
   }
 </style>
-
-
-
-
-
+ 
