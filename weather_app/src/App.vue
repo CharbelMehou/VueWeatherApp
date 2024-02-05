@@ -1,6 +1,7 @@
 <script>
 export default {
   name:'App',
+  //Toutes les variables d'états utilisées par le composant
   data(){
     return {
       api_key:'006e2bebf795c269b2e0ff117ec47592',
@@ -41,6 +42,7 @@ export default {
       <div class="search-box">
         <input 
           type="text" 
+          placeholder="Rechercher une ville"
           class="search-bar" 
           v-model="query"
           @keypress="fetch_weather"
@@ -210,7 +212,6 @@ box-shadow: 3px 6px rgba(0, 0,0,0.25);
   
 }
 
-/* Styles réactifs pour les écrans plus petits (exemple : tablettes) */
 @media (max-width: 768px) {
   main{
   height: 100vh;
@@ -229,7 +230,6 @@ box-shadow: 3px 6px rgba(0, 0,0,0.25);
     box-shadow: #ffffff;
   }
 }
-/* Styles réactifs pour les écrans plus petits téléphone */
 @media (max-width: 480px) {
   main{
   height: 100vh;
@@ -249,4 +249,8 @@ box-shadow: 3px 6px rgba(0, 0,0,0.25);
   }
   }
 </style>
- 
+
+
+
+
+
